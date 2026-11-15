@@ -25,3 +25,4 @@ imgsV5.forEach((img5, i) => {
   const v1Match = imgsV1.findIndex(img1 => img1.buffer.equals(img5.buffer));
   console.log(`v5 image #${i+1} (${img5.mime}, ${Math.round(img5.len*0.75/1024)}KB): ${v1Match !== -1 ? `IDENTICAL to v1 image #${v1Match+1}` : 'NEW/UPDATED IMAGE'}`);
 });
+

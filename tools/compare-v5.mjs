@@ -15,3 +15,4 @@ fs.writeFileSync('tools/clean-template-v5.html', cleanV5);
 console.log('Saved tools/clean-template-v5.html');
 console.log('Total base64 images in v5:', count);
 console.log('Image lengths:', assets.map(a => `#${a.index}: ${a.mime} (${Math.round(a.length*0.75/1024)}KB)`).join(', '));
+

@@ -10,3 +10,4 @@ for (let i = 0; i < Math.max(v1.length, v5.length); i++) {
     console.log(`--- L${i+1} in v1:\n${line1}\n+++ L${i+1} in v5:\n${line5}\n`);
   }
 }
+

@@ -12,3 +12,4 @@ while ((match = regex.exec(v5)) !== null) {
   const post = v5.substring(match.index, match.index + 50).replace(/\s+/g, ' ').slice(0, 40);
   console.log(`Image ${num}: ...${context} [${match[0]}] ${post}...`);
 }
+

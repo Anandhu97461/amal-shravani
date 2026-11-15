@@ -3,7 +3,7 @@
  * Controls the animated opening doors and initial entry reveal
  */
 
-export function initGate() {
+export function initGate(onOpen) {
   const gate = document.getElementById('gate');
   const openBtn = document.getElementById('open');
   const hero = document.getElementById('hero');
@@ -17,6 +17,11 @@ export function initGate() {
     gate.classList.add('open');
     gate.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+
+    // Trigger audio / custom callback immediately on user click
+    if (typeof onOpen === 'function') {
+      onOpen();
+    }
 
     // Trigger hero reveal after doors slide open
     setTimeout(() => {

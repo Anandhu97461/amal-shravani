@@ -61,3 +61,4 @@ if (clean(scriptV1) === clean(scriptV5)) {
 } else {
   console.log('Script differs!');
 }
+

@@ -18,13 +18,17 @@ import { initCountdown } from './src/modules/countdown.js';
 import { initPetals } from './src/modules/petals.js';
 import { initNav } from './src/modules/nav.js';
 import { initCalendarButtons } from './src/modules/calendar.js';
+import { initAudio } from './src/modules/audio.js';
 
 function initApp() {
   // 1. Render all dynamic content from config.js
   renderContent(invitationConfig);
 
-  // 2. Initialize interactive features
-  initGate();
+  // 2. Initialize background audio controller
+  const audio = initAudio();
+
+  // 3. Initialize interactive features
+  initGate(() => audio.play());
   initNav(invitationConfig.navigation);
   initPetals();
   initCountdown(invitationConfig.countdown.targetDate);
@@ -32,7 +36,7 @@ function initApp() {
   initLightbox();
   initCalendarButtons(invitationConfig.events);
 
-  // 3. Initialize scroll-triggered reveals after DOM is fully populated
+  // 4. Initialize scroll-triggered reveals after DOM is fully populated
   initReveal();
 }
 
