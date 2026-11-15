@@ -158,6 +158,62 @@
       </div>
       <div class="col"></div>
     </section>
+
+    <!-- 7. RSVP Section -->
+    <section id="rsvp" aria-label="RSVP">
+      <div class="bg b5"><i class="fl"></i><i class="pc"></i></div>
+      <div class="col">
+        <div class="seal" aria-hidden="true">A&amp;S</div>
+        <p class="cap rv" style="--i:0">RSVP</p>
+        <h2 class="rv" style="--i:1;margin-top:.3rem">
+          Will you<br><span class="script" style="font-size:1.3em">join us?</span>
+        </h2>
+        <p class="rv" style="--i:2;font-style:italic;font-size:1.15em;margin-top:.5rem">Your presence is the greatest gift. Please let us know.</p>
+        <div class="rs" id="rs">
+          <div class="rv" style="--i:3">
+            <label for="rn">YOUR NAME</label>
+            <input id="rn" type="text" autocomplete="name" placeholder="Full name">
+          </div>
+          <div class="rv" style="--i:4">
+            <span class="lb">WILL YOU ATTEND?</span>
+            <div class="chips" id="att" role="radiogroup" aria-label="Will you attend?">
+              <button type="button" class="chip on" data-v="1" role="radio" aria-checked="true">JOYFULLY ACCEPT</button>
+              <button type="button" class="chip" data-v="0" role="radio" aria-checked="false">REGRETFULLY DECLINE</button>
+            </div>
+          </div>
+          <div id="evq">
+            <div class="rv" style="--i:5">
+              <span class="lb">WHICH CELEBRATIONS?</span>
+              <div class="chips" id="evs" role="group" aria-label="Select celebrations">
+                <button type="button" class="chip on">CHRISTIAN WEDDING · 6 JAN, 3 PM</button>
+                <button type="button" class="chip on">RECEPTION · 6 JAN, 6 PM</button>
+                <button type="button" class="chip on">WEDDING CEREMONY · 7 JAN, 11 AM</button>
+              </div>
+            </div>
+            <div class="rv" style="--i:6">
+              <span class="lb">NUMBER OF GUESTS</span>
+              <div class="stp">
+                <button type="button" id="gm" aria-label="Fewer guests">&minus;</button>
+                <b id="gn">1</b>
+                <button type="button" id="gp" aria-label="More guests">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="rv" style="--i:7">
+            <label for="rm">A MESSAGE FOR THE COUPLE (OPTIONAL)</label>
+            <textarea id="rm" placeholder="Your blessings and wishes"></textarea>
+          </div>
+          <div class="rv" style="--i:8">
+            <button type="button" class="send" id="sd">SEND RSVP ON WHATSAPP</button>
+            <p class="err" id="er" role="alert"></p>
+          </div>
+        </div>
+        <div class="ty" id="ty">
+          <h3>Thank you</h3>
+          <p style="font-style:italic;font-size:1.2em">Your reply is on its way. We can’t wait to celebrate with you.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Lightbox Modal -->

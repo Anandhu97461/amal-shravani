@@ -19,6 +19,7 @@ import { initPetals } from './src/modules/petals.js';
 import { initNav } from './src/modules/nav.js';
 import { initCalendarButtons } from './src/modules/calendar.js';
 import { initAudio } from './src/modules/audio.js';
+import { initRsvp } from './src/modules/rsvp.js';
 
 function initApp() {
   // 1. Render all dynamic content from config.js
@@ -35,6 +36,7 @@ function initApp() {
   initCarousel();
   initLightbox();
   initCalendarButtons(invitationConfig.events);
+  initRsvp(invitationConfig);
 
   // 4. Initialize scroll-triggered reveals after DOM is fully populated
   initReveal();

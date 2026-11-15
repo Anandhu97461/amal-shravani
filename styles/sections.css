@@ -460,6 +460,7 @@ h1, h2 {
 
 .pl img {
   width: 100%;
+  height: auto !important;
   display: block;
   aspect-ratio: var(--ar);
   object-fit: cover;
@@ -589,6 +590,210 @@ h1, h2 {
 }
 #e3 .col {
   padding: 22svh 0 16svh;
+}
+
+/* ==========================================================================
+   RSVP Section
+   ========================================================================== */
+#rsvp {
+  color: #4a1a10;
+}
+
+#rsvp .col {
+  width: calc(var(--cw) * 0.8);
+  padding: 7svh 0 9svh;
+  justify-content: flex-start;
+}
+
+#rsvp h2 {
+  font-size: 2.6em;
+  color: #5a1212;
+}
+
+.seal {
+  width: 4.4em;
+  height: 4.4em;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 35% 30%, #d94a3a, #8e1620 60%, #5a0b12);
+  box-shadow: 0 6px 14px rgba(70, 10, 10, 0.45),
+              inset 0 0 0 0.2em rgba(255, 255, 255, 0.08),
+              inset 0 -0.25em 0.5em rgba(0, 0, 0, 0.35);
+  color: #f6d98a;
+  font: 400 1.7em var(--script);
+  margin-bottom: 0.8rem;
+  opacity: 0;
+  transform: scale(2.4) rotate(-30deg);
+  transition: transform 1s cubic-bezier(0.3, 1.5, 0.5, 1) 0.4s, opacity 0.4s 0.4s;
+}
+
+.in .seal {
+  opacity: 1;
+  transform: none;
+}
+
+.rs {
+  width: 100%;
+  margin-top: 0.6rem;
+  text-align: left;
+}
+
+.rs label,
+.rs .lb {
+  display: block;
+  font: 600 0.62em var(--cap);
+  letter-spacing: 0.2em;
+  color: #8a5a1a;
+  margin: 1.2rem 0 0.35rem;
+}
+
+.rs input,
+.rs textarea {
+  width: 100%;
+  background: rgba(255, 252, 240, 0.55);
+  border: 0;
+  border-bottom: 1.5px solid var(--gold);
+  padding: 0.5em 0.6em;
+  font: 1.15em var(--serif);
+  color: var(--ink);
+  outline: none;
+  border-radius: 4px 4px 0 0;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.rs input:focus,
+.rs textarea:focus {
+  background: rgba(255, 252, 240, 0.97);
+  border-color: #5a1212;
+}
+
+.rs textarea {
+  resize: none;
+  height: 4.2em;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  padding: 0.7em 1.1em;
+  border: 1.5px solid var(--gold);
+  border-radius: 40px;
+  font: 600 0.62em var(--cap);
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  color: #6a4414;
+  background: rgba(255, 252, 240, 0.5);
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.chip:hover,
+.chip:focus-visible {
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.chip.on {
+  background: linear-gradient(#e6c36b, #b8872e);
+  color: #fff;
+  border-color: #b8872e;
+}
+
+.stp {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stp button {
+  width: 2.3em;
+  height: 2.3em;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  background: none;
+  color: #8a5a1a;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.stp button:hover,
+.stp button:focus-visible {
+  background: var(--gold);
+  color: #fff;
+}
+
+.stp b {
+  font: 600 1.4em var(--cap);
+  min-width: 1.4em;
+  text-align: center;
+}
+
+#evq {
+  transition: opacity 0.5s, max-height 0.6s;
+  max-height: 30em;
+  overflow: hidden;
+}
+
+#evq.off {
+  opacity: 0;
+  max-height: 0;
+}
+
+.send {
+  margin-top: 1.6rem;
+  width: 100%;
+  padding: 1.1em;
+  border: 0;
+  border-radius: 40px;
+  background: linear-gradient(#e6c36b, #b8872e);
+  color: #3a1208;
+  font: 600 0.72em var(--cap);
+  letter-spacing: 0.18em;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(150, 100, 20, 0.35);
+  transition: transform 0.3s;
+}
+
+.send:hover,
+.send:focus-visible {
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.err {
+  color: #8e1620;
+  font-size: 0.95em;
+  min-height: 1.3em;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.ty {
+  display: none;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.ty.on {
+  display: block;
+  animation: pop 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.ty h3 {
+  font: 400 3em var(--script);
+  color: #a8741f;
 }
 
 /* ==========================================================================

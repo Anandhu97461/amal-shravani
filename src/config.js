@@ -219,14 +219,22 @@ export const invitationConfig = {
     ]
   },
 
-  // 6 Dot Navigation links
+  // RSVP Configuration
+  rsvp: {
+    sealMonogram: 'A&S',
+    // Couple's WhatsApp phone number with country code (digits only, e.g. '919876543210')
+    phone: ''
+  },
+
+  // 7 Dot Navigation links (matching wedding-invite-v5)
   navigation: [
     { target: '#hero', label: 'Welcome' },
     { target: '#story', label: 'Our story' },
     { target: '#moments', label: 'Moments' },
     { target: '#e1', label: 'Christian wedding' },
     { target: '#e2', label: 'Reception' },
-    { target: '#e3', label: 'Wedding ceremony' }
+    { target: '#e3', label: 'Wedding ceremony' },
+    { target: '#rsvp', label: 'RSVP' }
   ]
 };
 

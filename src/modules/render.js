@@ -68,17 +68,15 @@ export function renderContent(config) {
   if (colsContainer && config.moments.items) {
     colsContainer.innerHTML = config.moments.items.map((m) => `
       <figure class="mo" data-rv style="--r:${m.rotation}">
-        <button type="button" class="pl" style="--ar:${m.aspectRatio};--d:${m.delay}" aria-label="Enlarge photo: ${m.caption}">
+        <div class="pl" role="button" tabindex="0" style="--ar:${m.aspectRatio};--d:${m.delay}" aria-label="Enlarge photo: ${m.caption}">
           <img 
             alt="${m.alt}" 
             src="${m.image}" 
-            width="${m.width}" 
-            height="${m.height}" 
             loading="lazy" 
             decoding="async"
           >
           <span>${m.caption}</span>
-        </button>
+        </div>
       </figure>
     `).join('');
   }
@@ -129,7 +127,13 @@ export function renderContent(config) {
     `;
   });
 
-  // 6. Footer Content
+  // 6. RSVP Section
+  const seal = document.querySelector('#rsvp .seal');
+  if (seal && config.rsvp?.sealMonogram) {
+    seal.textContent = config.rsvp.sealMonogram;
+  }
+
+  // 7. Footer Content
   const footerScript = document.querySelector('footer .footer-title');
   const footerCountdownTitle = document.querySelector('footer .footer-cd-title');
   const footerBlessing = document.querySelector('footer .footer-blessing');

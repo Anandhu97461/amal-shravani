@@ -3,6 +3,27 @@
  * Smooth canvas animation of falling wedding flower petals with tab-visibility awareness
  */
 
+let globalParticles = [];
+let globalWidth = 0;
+let globalColors = ['#f6d98a', '#fff3d6', '#e8a0a0', '#d9b85a'];
+
+export function burstPetals(count = 45) {
+  if (!globalParticles.length) return;
+  for (let i = 0; i < count; i++) {
+    globalParticles.push({
+      x: Math.random() * (globalWidth || window.innerWidth),
+      y: -20 - Math.random() * 300,
+      r: 3 + Math.random() * 4,
+      s: 1 + Math.random() * 1.5,
+      d: Math.random() * 6,
+      c: globalColors[i % globalColors.length]
+    });
+  }
+  setTimeout(() => {
+    globalParticles.splice(-count);
+  }, 9000);
+}
+
 export function initPetals() {
   const canvas = document.getElementById('petals');
   if (!canvas) return;
@@ -19,13 +40,16 @@ export function initPetals() {
   let width = 0;
   let height = 0;
   let particles = [];
+  globalParticles = particles;
   let animFrameId = null;
 
   const colors = ['#f6d98a', '#fff3d6', '#e8a0a0', '#d9b85a'];
+  globalColors = colors;
 
   function resize() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
+    globalWidth = width;
   }
 
   resize();
