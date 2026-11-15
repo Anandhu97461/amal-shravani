@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Design Tokens & Global Resets
+   ========================================================================== */
+
+:root {
+  /* Brand Palette */
+  --maroon: #5a1212;
+  --gold: #b8872e;
+  --goldl: #e6c36b;
+  --olive: #4d5a35;
+  --ink: #3b1a14;
+  --dark-bg: #2c0606;
+
+  /* Typography */
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --cap: 'Cinzel', Georgia, serif;
+  --script: 'Great Vibes', cursive;
+
+  /* Portrait Column Dimensions */
+  --iw: 56.25svh;
+  --cw: min(100vw, var(--iw));
+
+  /* Safe Area Insets */
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+  height: 100%;
+  background: var(--dark-bg);
+}
+
+body {
+  background: var(--dark-bg);
+  color: var(--ink);
+  font-family: var(--serif);
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible focus styling */
+:focus-visible {
+  outline: 2px solid var(--goldl);
+  outline-offset: 3px;
+}
+
+/* Visually Hidden Helper for Screen Readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+

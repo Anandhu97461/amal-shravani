@@ -1,0 +1,144 @@
+/* ==========================================================================
+   Layout System: Portrait Column, Backgrounds, Overlays, and Decor
+   ========================================================================== */
+
+section {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  scroll-snap-align: start;
+  font-size: clamp(15px, calc(var(--cw) / 23), 22px);
+}
+
+/* Portrait column: exactly 74% of --cw wide, centered */
+.col {
+  position: relative;
+  z-index: 5;
+  width: calc(var(--cw) * 0.74);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+/* Image Background System:
+   Portrait image centered at auto 100% over blurred cover copy filling wide screens */
+.bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transform: scale(1.2);
+  transition: transform 2.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  pointer-events: none;
+}
+
+.in .bg {
+  transform: none;
+}
+
+.bg i {
+  position: absolute;
+  display: block;
+}
+
+.bg .fl {
+  inset: -6%;
+  background: var(--img) center / cover no-repeat;
+  filter: blur(26px) saturate(1.15);
+}
+
+.bg .pc {
+  inset: 0;
+  background: var(--img) center / auto 100% no-repeat;
+  animation: kb 26s ease-in-out infinite alternate;
+}
+
+/* Section Background Images */
+.b1 { --img: url('/assets/hero-sunrise.webp'); }
+.b2 { --img: url('/assets/church-arch.webp'); }
+.b3 { --img: url('/assets/reception-lanterns.webp'); }
+.b4 { --img: url('/assets/mandapam-arch.webp'); }
+.b5 { --img: url('/assets/story-bg.webp'); }
+
+/* Aspect ratio reference box for coordinate-based effects */
+.box {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: var(--iw);
+  translate: -50% 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Radial Pulsing Glow Spots */
+.glow {
+  position: absolute;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(rgba(255, 226, 150, 0.9), rgba(255, 190, 80, 0) 68%);
+  mix-blend-mode: screen;
+  animation: gl 3.2s ease-in-out infinite alternate;
+}
+
+/* Decorative Framing Layer */
+.cl {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--cw);
+  translate: -50% 0;
+  height: 100%;
+  z-index: 6;
+  pointer-events: none;
+}
+
+/* Garland, Bell and Lamp Hanging Art */
+.art {
+  position: absolute;
+  top: -4px;
+  background: center top / contain no-repeat;
+  filter: drop-shadow(3px 9px 8px rgba(40, 15, 0, 0.4));
+  transform-origin: 50% 0;
+  transform: translateY(-120%);
+  transition: transform 2s cubic-bezier(0.2, 0.8, 0.2, 1.03) 0.2s;
+}
+
+.in .art {
+  transform: none;
+  animation: sway 6s ease-in-out 2.3s infinite;
+}
+
+.art.r {
+  animation-delay: 3.8s !important;
+}
+
+.gar {
+  background-image: url('/assets/garland.webp');
+  aspect-ratio: 364 / 1000;
+  height: calc(var(--cw) * 0.5);
+}
+
+.chb {
+  background-image: url('/assets/church-bell.webp');
+  aspect-ratio: 313 / 700;
+  width: calc(var(--cw) * 0.17);
+}
+
+.lan {
+  background-image: url('/assets/lantern.webp');
+  aspect-ratio: 342 / 700;
+  width: calc(var(--cw) * 0.17);
+}
+
+.bel {
+  background-image: url('/assets/bell.png');
+  aspect-ratio: 318 / 640;
+  width: calc(var(--cw) * 0.15);
+}
+

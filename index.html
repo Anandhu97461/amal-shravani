@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Amal &amp; Shravani – Wedding Invitation</title>
+  <meta name="description" content="Wedding invitation for Amal &amp; Shravani. Two faiths, one love. Celebrating Holy Matrimony, Reception, and Wedding Ceremony on 6 &amp; 7 January 2027.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Amal &amp; Shravani – Wedding Invitation">
+  <meta property="og:description" content="Two faiths, one love. Where two cultures meet, one love begins. 6 &amp; 7 January 2027.">
+  <meta property="og:image" content="/assets/hero-sunrise.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Amal &amp; Shravani – Wedding Invitation">
+  <meta name="twitter:description" content="Two faiths, one love. Where two cultures meet, one love begins. 6 &amp; 7 January 2027.">
+  <meta name="twitter:image" content="/assets/hero-sunrise.webp">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Performance: Preload Above-the-fold Hero Image -->
+  <link rel="preload" as="image" href="/assets/hero-sunrise.webp" fetchpriority="high">
+
+  <!-- Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Global Vector Symbols -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#fff0b0"/>
+        <stop offset=".35" stop-color="#d9a53a"/>
+        <stop offset=".65" stop-color="#8f5f14"/>
+        <stop offset="1" stop-color="#f3d27a"/>
+      </linearGradient>
+      <g id="lotus">
+        <path d="M11 2c3 4 3 10 0 14-3-4-3-10 0-14Zm-9 7c5 0 8 3 9 8-5 0-9-3-9-8Zm18 0c-5 0-8 3-9 8 5 0 9-3 9-8Z" fill="url(#gold)"/>
+      </g>
+      <g id="cross">
+        <path d="M10.5 1h3v7h7v3h-7v12h-3V11h-7V8h7Z" fill="url(#gold)"/>
+      </g>
+    </defs>
+  </svg>
+
+  <!-- Gate Overlay Doors -->
+  <div id="gate" role="dialog" aria-modal="true" aria-label="Wedding Invitation Envelope">
+    <div class="d a" aria-hidden="true"></div>
+    <div class="d b" aria-hidden="true"></div>
+    <div class="t">
+      <p class="cap" style="color:var(--goldl)">YOU ARE INVITED</p>
+      <p class="script" style="font-size:clamp(3rem,12vw,5rem);color:var(--goldl)">Amal &amp; Shravani</p>
+      <button id="open" type="button">OPEN INVITATION</button>
+    </div>
+  </div>
+
+  <!-- Falling Petals Canvas -->
+  <canvas id="petals" aria-hidden="true"></canvas>
+
+  <!-- 6-Dot Navigation Menu -->
+  <nav class="nav" aria-label="Section shortcuts"></nav>
+
+  <!-- Main Content Landmark -->
+  <main id="main">
+    <!-- 1. Hero Section -->
+    <section id="hero" aria-label="Welcome">
+      <div class="bg b1"><i class="fl"></i><i class="pc"></i></div>
+      <div class="box"><i class="glow" style="left:13%;top:73%;width:36%;aspect-ratio:1"></i></div>
+      <div class="cl">
+        <i class="art gar" style="left:-2%"></i>
+        <i class="art gar r" style="right:-2%;scale:-1 1"></i>
+        <i class="art chb" style="left:26%"></i>
+        <i class="art lan r" style="right:26%"></i>
+      </div>
+      <div class="col">
+        <div class="sym rv z" style="--i:0">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#cross"/></svg>
+          <svg viewBox="0 0 22 22" aria-hidden="true"><use href="#lotus"/></svg>
+        </div>
+        <p class="cap rv hero-tagline" style="--i:1;color:#6b7a45">TWO FAITHS · ONE LOVE</p>
+        <h1 class="gt rv hero-groom" style="--i:2">Amal</h1>
+        <span class="script rv" style="--i:3">weds</span>
+        <h1 class="gt rv hero-bride" style="--i:4">Shravani</h1>
+        <p class="rv hero-quote" style="--i:5;font-style:italic;margin-top:.8rem;font-size:1.2em;color:#4d5a35">Where two cultures meet, one love begins</p>
+        <p class="cap rv hero-dates" style="--i:6;color:#4d5a35;margin-top:.9rem">6 &amp; 7 JANUARY 2027</p>
+      </div>
+      <span class="scroll cap" aria-hidden="true">SCROLL ↓</span>
+    </section>
+
+    <!-- 2. Our Story Section -->
+    <section id="story" aria-label="Our Story">
+      <div class="bg b5"><i class="fl"></i><i class="pc"></i></div>
+      <div class="col">
+        <p class="cap rv story-label" style="--i:0">OUR STORY</p>
+        <h2 class="rv story-heading" style="--i:1;margin-top:.3rem;color:#5a1212">
+          How it all<br><span class="script" style="font-size:1.3em">began</span>
+        </h2>
+        <div class="car rv" style="--i:2" aria-roledescription="carousel" aria-label="Our story timeline"></div>
+        <div id="story-live-region" class="sr-only" aria-live="polite"></div>
+        <div class="ctl rv" style="--i:3">
+          <button id="pv" type="button" aria-label="Previous story slide">&#8249;</button>
+          <span class="dts" role="group" aria-label="Slide indicators"></span>
+          <button id="nx" type="button" aria-label="Next story slide">&#8250;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Moments Section -->
+    <section id="moments" aria-label="Moments">
+      <div class="mh" data-rv>
+        <p class="cap rv moments-label" style="--i:0">MOMENTS</p>
+        <h2 class="rv moments-heading" style="--i:1;margin-top:.3rem">
+          Our <span class="script" style="font-size:1.3em">memories</span>
+        </h2>
+      </div>
+      <div class="cols"></div>
+    </section>
+
+    <!-- 4. The Christian Wedding -->
+    <section id="e1" class="ev" aria-label="The Christian Wedding">
+      <div class="bg b2"><i class="fl"></i><i class="pc"></i></div>
+      <div class="col"></div>
+    </section>
+
+    <!-- 5. Wedding Reception -->
+    <section id="e2" class="ev" aria-label="Wedding Reception">
+      <div class="bg b3"><i class="fl"></i><i class="pc"></i></div>
+      <div class="box">
+        <i class="glow" style="left:13%;top:19%;width:22%;aspect-ratio:1"></i>
+        <i class="glow" style="left:26%;top:12%;width:14%;aspect-ratio:1;animation-delay:-1s"></i>
+        <i class="glow" style="left:90%;top:21%;width:20%;aspect-ratio:1;animation-delay:-2s"></i>
+        <i class="glow" style="left:86%;top:93%;width:14%;aspect-ratio:1;animation-delay:-.5s"></i>
+      </div>
+      <div class="col"></div>
+    </section>
+
+    <!-- 6. The Wedding Ceremony -->
+    <section id="e3" class="ev" aria-label="The Wedding Ceremony">
+      <div class="bg b4"><i class="fl"></i><i class="pc"></i></div>
+      <div class="box"><i class="glow" style="left:39%;top:80%;width:18%;aspect-ratio:1"></i></div>
+      <div class="cl">
+        <i class="art bel" style="left:50%;margin-left:calc(var(--cw)*-.075);z-index:8"></i>
+      </div>
+      <div class="col"></div>
+    </section>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photo preview" aria-hidden="true">
+    <button type="button" class="lb-close" aria-label="Close enlarged photo">&times;</button>
+    <figure>
+      <img alt="" src="" decoding="async">
+      <figcaption></figcaption>
+    </figure>
+  </div>
+
+  <!-- Footer with Countdown -->
+  <footer role="contentinfo">
+    <p class="script footer-title">Amal &amp; Shravani</p>
+    <p class="footer-cd-title" style="font-style:italic;margin-top:.5rem">Counting down to the wedding</p>
+    <div class="cd" role="timer" aria-label="Countdown to wedding day">
+      <div><b id="d">0</b><span>DAYS</span></div>
+      <div><b id="h">0</b><span>HOURS</span></div>
+      <div><b id="m">0</b><span>MINS</span></div>
+      <div><b id="s">0</b><span>SECS</span></div>
+    </div>
+    <p class="footer-blessing" style="font-style:italic">With the blessings of our families, we can’t wait to celebrate with you.</p>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
+
