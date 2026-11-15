@@ -113,17 +113,9 @@ export function renderContent(config) {
       <p class="meta rv" style="--i:4">${ev.time}</p>
       ${ev.note ? `<p class="meta rv" style="--i:5;font-style:italic;font-size:1.1em">${ev.note}</p>` : ''}
       ${venueHtml}
-      <div class="btn-group rv" style="--i:${6 + iOffset}">
-        <a class="btn" href="${ev.shareLink}" target="_blank" rel="noopener">
-          VIEW LOCATION
-        </a>
-        <button type="button" class="btn cal-btn" data-cal-id="${ev.id}" aria-label="Add ${ev.category} to calendar">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/>
-          </svg>
-          ADD TO CALENDAR
-        </button>
-      </div>
+      <a class="btn rv" style="--i:${(ev.note ? 6 : 5) + iOffset}" href="${ev.shareLink}" target="_blank" rel="noopener">
+        VIEW LOCATION
+      </a>
     `;
   });
 

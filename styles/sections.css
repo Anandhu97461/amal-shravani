@@ -60,20 +60,9 @@ h1, h2 {
 }
 
 /* Button & Action Links */
-.btn-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1.3rem;
-}
-
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5em;
+  display: inline-block;
+  margin-top: 1.3rem;
   padding: 0.85em 1.9em;
   border: 1.5px solid currentColor;
   border-radius: 40px;
@@ -95,19 +84,6 @@ h1, h2 {
   color: #fff !important;
   transform: translateY(-2px);
   outline: none;
-}
-
-.btn.cal-btn {
-  font-size: 0.68em;
-  padding: 0.78em 1.45em;
-  background-image: linear-gradient(rgba(184, 135, 46, 0.9), rgba(184, 135, 46, 0.9));
-}
-
-.btn.cal-btn svg {
-  width: 1.15em;
-  height: 1.15em;
-  fill: currentColor;
-  flex-shrink: 0;
 }
 
 .ev h2 {
@@ -880,14 +856,14 @@ footer .script {
 /* Floating Music Control Button */
 .music-btn {
   position: fixed;
-  top: 14px;
-  right: 14px;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  left: calc(18px + env(safe-area-inset-left, 0px));
   z-index: 70;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 1.5px solid var(--goldl);
-  background: rgba(44, 6, 6, 0.75);
+  background: rgba(44, 6, 6, 0.8);
   color: var(--goldl);
   cursor: pointer;
   display: flex;

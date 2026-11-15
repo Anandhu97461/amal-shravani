@@ -17,7 +17,6 @@ import { initLightbox } from './src/modules/lightbox.js';
 import { initCountdown } from './src/modules/countdown.js';
 import { initPetals } from './src/modules/petals.js';
 import { initNav } from './src/modules/nav.js';
-import { initCalendarButtons } from './src/modules/calendar.js';
 import { initAudio } from './src/modules/audio.js';
 import { initRsvp } from './src/modules/rsvp.js';
 
@@ -35,7 +34,6 @@ function initApp() {
   initCountdown(invitationConfig.countdown.targetDate);
   initCarousel();
   initLightbox();
-  initCalendarButtons(invitationConfig.events);
   initRsvp(invitationConfig);
 
   // 4. Initialize scroll-triggered reveals after DOM is fully populated
