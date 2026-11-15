@@ -58,7 +58,7 @@ section {
 }
 
 /* Section Background Images */
-.b1 { --img: url('/assets/hero-sunrise.webp'); }
+.b1 { --img: url('/assets/hero-sunlit.webp'); }
 .b2 { --img: url('/assets/church-arch.webp'); }
 .b3 { --img: url('/assets/reception-lanterns.webp'); }
 .b4 { --img: url('/assets/mandapam-arch.webp'); }

@@ -29,7 +29,7 @@ async function capture() {
     const page = await browser.newPage();
     await page.setViewport({ width: vp.width, height: vp.height, deviceScaleFactor: 2 });
 
-    await page.goto('http://localhost:5173/', { waitUntil: 'networkidle0' });
+    await page.goto('http://localhost:5174/', { waitUntil: 'networkidle0' });
 
     // 1. Gate Screenshot
     const gatePath = path.join(outputDir, `gate-${vp.name}.png`);
@@ -38,15 +38,14 @@ async function capture() {
 
     // Click OPEN INVITATION
     await page.click('#open');
-    // Wait for gate doors (1.4s) + hero reveal delay + stagger + transition
     await new Promise((r) => setTimeout(r, 3200));
 
-    // 2. Hero Section
+    // 2. Hero Section (Page 1)
     const heroPath = path.join(outputDir, `hero-${vp.name}.png`);
     await page.screenshot({ path: heroPath });
     console.log(`✓ Saved hero-${vp.name}.png`);
 
-    // 3. Our Story Section
+    // 3. Our Story Section (Page 2)
     await page.evaluate(() => {
       document.getElementById('story').scrollIntoView({ behavior: 'instant', block: 'start' });
     });
@@ -55,7 +54,7 @@ async function capture() {
     await page.screenshot({ path: storyPath });
     console.log(`✓ Saved story-${vp.name}.png`);
 
-    // 4. Moments Section
+    // 4. Moments Section (Page 3)
     await page.evaluate(() => {
       document.getElementById('moments').scrollIntoView({ behavior: 'instant', block: 'start' });
     });
@@ -77,32 +76,32 @@ async function capture() {
       await new Promise((r) => setTimeout(r, 600));
     }
 
-    // 5. Christian Wedding (#e1)
+    // 5. Christian Wedding & Reception (Page 4: #e1)
     await page.evaluate(() => {
       document.getElementById('e1').scrollIntoView({ behavior: 'instant', block: 'start' });
     });
     await new Promise((r) => setTimeout(r, 3200));
     const e1Path = path.join(outputDir, `e1-${vp.name}.png`);
     await page.screenshot({ path: e1Path });
-    console.log(`✓ Saved e1-${vp.name}.png`);
+    console.log(`✓ Saved e1-${vp.name}.png (Church & Reception)`);
 
-    // 6. Reception (#e2)
-    await page.evaluate(() => {
-      document.getElementById('e2').scrollIntoView({ behavior: 'instant', block: 'start' });
-    });
-    await new Promise((r) => setTimeout(r, 3200));
-    const e2Path = path.join(outputDir, `e2-${vp.name}.png`);
-    await page.screenshot({ path: e2Path });
-    console.log(`✓ Saved e2-${vp.name}.png`);
-
-    // 7. Wedding Ceremony (#e3)
+    // 6. Hindu Wedding Ceremony (Page 5: #e3)
     await page.evaluate(() => {
       document.getElementById('e3').scrollIntoView({ behavior: 'instant', block: 'start' });
     });
     await new Promise((r) => setTimeout(r, 3200));
     const e3Path = path.join(outputDir, `e3-${vp.name}.png`);
     await page.screenshot({ path: e3Path });
-    console.log(`✓ Saved e3-${vp.name}.png`);
+    console.log(`✓ Saved e3-${vp.name}.png (Hindu Ceremony with Ganesha)`);
+
+    // 7. RSVP Section (Page 6: #rsvp)
+    await page.evaluate(() => {
+      document.getElementById('rsvp').scrollIntoView({ behavior: 'instant', block: 'start' });
+    });
+    await new Promise((r) => setTimeout(r, 3200));
+    const rsvpPath = path.join(outputDir, `rsvp-${vp.name}.png`);
+    await page.screenshot({ path: rsvpPath });
+    console.log(`✓ Saved rsvp-${vp.name}.png`);
 
     // 8. Footer & Countdown
     await page.evaluate(() => {
@@ -113,31 +112,13 @@ async function capture() {
     await page.screenshot({ path: footerPath });
     console.log(`✓ Saved footer-${vp.name}.png`);
 
-    // Horizontal scroll QA check
+    // Horizontal overflow check
     const hasHorizontalOverflow = await page.evaluate(() => {
       return document.documentElement.scrollWidth > document.documentElement.clientWidth;
     });
     console.log(`Horizontal overflow check for ${vp.name}: ${hasHorizontalOverflow ? 'FAILED' : 'PASSED'}`);
 
     await page.close();
-  }
-
-  // Multi-viewport QA check
-  console.log(`\n--- Multi-viewport Overflow QA ---`);
-  for (const width of [320, 390, 768, 1024, 1440, 1920]) {
-    for (const isLandscape of [false, true]) {
-      const h = isLandscape ? 500 : 900;
-      const page = await browser.newPage();
-      await page.setViewport({ width, height: h });
-      await page.goto('http://localhost:5173/', { waitUntil: 'networkidle0' });
-      await page.click('#open');
-      await new Promise((r) => setTimeout(r, 1000));
-      const overflow = await page.evaluate(() => {
-        return document.documentElement.scrollWidth > document.documentElement.clientWidth;
-      });
-      console.log(`Width ${width}px (${isLandscape ? 'landscape' : 'portrait'}): ${overflow ? 'FAILED (overflow)' : 'PASSED (clean)'}`);
-      await page.close();
-    }
   }
 
   await browser.close();

@@ -5,7 +5,10 @@ export default defineConfig({
   publicDir: 'public',
   server: {
     port: 5173,
-    open: false
+    open: false,
+    watch: {
+      ignored: ['**/assets/**', '**/screenshots/**', '**/tools/**']
+    }
   }
 });
 

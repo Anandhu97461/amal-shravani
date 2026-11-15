@@ -24,7 +24,7 @@ export const invitationConfig = {
     blessing: "With the blessings of our families, we can’t wait to celebrate with you."
   },
 
-  // Wedding Events (Holy Matrimony, Reception, Ceremony)
+  // Wedding Events (Holy Matrimony & Reception combined on Page 4, Wedding Ceremony on Page 5)
   events: [
     {
       id: 'e1',
@@ -35,36 +35,18 @@ export const invitationConfig = {
       time: 'at 3:00 pm',
       note: '',
       shareLink: 'https://share.google/2TApOwZx3mzD7lfUB',
-      // Venue fields: leave empty ('') unless you wish to display a specific venue name & address
       venueName: '',
       venueAddress: '',
       bgClass: 'b2',
-      calendar: {
-        summary: 'Amal & Shravani – Holy Matrimony',
-        description: 'The Christian Wedding ceremony of Amal & Shravani. Holy Matrimony. Location: https://share.google/2TApOwZx3mzD7lfUB',
-        start: '20270106T093000Z', // 3:00 PM IST (UTC 09:30)
-        end: '20270106T113000Z',   // 5:00 PM IST (UTC 11:30)
-        location: 'https://share.google/2TApOwZx3mzD7lfUB'
-      }
-    },
-    {
-      id: 'e2',
-      category: 'CHRISTIAN WEDDING',
-      titleMain: 'Wedding',
-      titleScript: 'Reception',
-      date: 'Wednesday\n6 January 2027',
-      time: 'at 6:00 pm',
-      note: 'Dinner, music and dancing to follow',
-      shareLink: 'https://share.google/y7osfZR57u3zfTRcf',
-      venueName: '',
-      venueAddress: '',
-      bgClass: 'b3',
-      calendar: {
-        summary: 'Amal & Shravani – Wedding Reception',
-        description: 'Wedding Reception for Amal & Shravani. Dinner, music and dancing to follow. Location: https://share.google/y7osfZR57u3zfTRcf',
-        start: '20270106T123000Z', // 6:00 PM IST (UTC 12:30)
-        end: '20270106T163000Z',   // 10:00 PM IST (UTC 16:30)
-        location: 'https://share.google/y7osfZR57u3zfTRcf'
+      reception: {
+        category: 'WEDDING RECEPTION',
+        titleMain: 'Wedding',
+        titleScript: 'Reception',
+        time: 'at 6:00 pm',
+        note: 'Dinner, music and dancing to follow',
+        shareLink: 'https://share.google/y7osfZR57u3zfTRcf',
+        venueName: '',
+        venueAddress: ''
       }
     },
     {
@@ -79,58 +61,54 @@ export const invitationConfig = {
       venueName: '',
       venueAddress: '',
       bgClass: 'b4',
-      calendar: {
-        summary: 'Amal & Shravani – Wedding Ceremony',
-        description: 'The Wedding Ceremony of Amal & Shravani. Traditional attire. Location: https://share.google/gn3vFEz7rnIxpTN5b',
-        start: '20270107T053000Z', // 11:00 AM IST (UTC 05:30)
-        end: '20270107T083000Z',   // 2:00 PM IST (UTC 08:30)
-        location: 'https://share.google/gn3vFEz7rnIxpTN5b'
+      malayalamVerse: {
+        invocation: 'ഓം ശ്രീ മഹാഗണപതയേ നമഃ'
       }
     }
   ],
 
-  // Our Story Carousel Chapters
+  // Our Story Carousel Chapters (written from client's story)
   story: {
     label: 'OUR STORY',
     headingMain: 'How it all',
     headingScript: 'began',
     chapters: [
       {
-        title: 'Where it began',
-        text: 'A simple conversation over coffee turned into a story we never wanted to end.',
-        image: '/assets/story-1.webp',
-        alt: 'Where it began – Amal and Shravani sharing coffee',
-        width: 760,
-        height: 949
+        title: 'Quiet years',
+        text: 'We met as classmates, and grew through quiet years, where love arrived not like a storm, but like steady rain.',
+        image: '/assets/new-story-1.webp',
+        alt: 'Where it began – Amal and Shravani sharing quiet moments',
+        width: 1147,
+        height: 1372
       },
       {
-        title: 'Wandering together',
-        text: 'Long walks, quiet sunsets and a growing certainty that home was wherever the other one was.',
-        image: '/assets/story-2.webp',
-        alt: 'Wandering together – sunset walk along the backwaters',
-        width: 760,
-        height: 949
+        title: 'Standing strong',
+        text: 'Through differences, doubts, and challenges along the way, we still stood, we learned, we grew.',
+        image: '/assets/new-story-2.webp',
+        alt: 'Through differences, doubts and challenges – sunset walk along the backwaters',
+        width: 1122,
+        height: 1402
       },
       {
-        title: 'The question',
-        text: 'Under a canopy of fairy lights, one question and one very happy yes.',
-        image: '/assets/story-3.webp',
-        alt: 'The question – rooftop proposal under fairy lights',
-        width: 760,
-        height: 949
+        title: 'Side by side',
+        text: 'And now with grateful hearts, we invite you to celebrate the day we begin our life, side by side.',
+        image: '/assets/new-story-3.webp',
+        alt: 'Side by side – Amal and Shravani ready for celebration',
+        width: 1122,
+        height: 1402
       },
       {
-        title: 'Forever begins',
-        text: 'Two families, two traditions, one promise. Come and celebrate with us.',
-        image: '/assets/story-4.webp',
-        alt: 'Forever begins – Amal and Shravani ready for celebration',
-        width: 760,
-        height: 949
+        title: 'Two faiths, one love',
+        text: 'Two traditions, two families, and one lifelong promise. We can’t wait to celebrate with you.',
+        image: '/assets/new-story-4.webp',
+        alt: 'Two faiths, one love – rooftop proposal under fairy lights',
+        width: 1122,
+        height: 1402
       }
     ]
   },
 
-  // Moments Gallery / Polaroid Collage
+  // Moments Gallery / Polaroid Collage (4-5 pictures maximum as requested)
   moments: {
     label: 'MOMENTS',
     headingMain: 'Our',
@@ -167,16 +145,6 @@ export const invitationConfig = {
         height: 619
       },
       {
-        caption: 'Golden hour',
-        image: '/assets/moment-4.webp',
-        alt: 'Golden hour – portrait in golden saree',
-        aspectRatio: '4/5',
-        delay: '-2.7s',
-        rotation: '2.5deg',
-        width: 800,
-        height: 999
-      },
-      {
         caption: 'Rain and laughter',
         image: '/assets/moment-5.webp',
         alt: 'Rain and laughter – joyful moments under a floral umbrella',
@@ -187,34 +155,14 @@ export const invitationConfig = {
         height: 619
       },
       {
-        caption: 'Ready for the day',
-        image: '/assets/moment-6.webp',
-        alt: 'Ready for the day – Amal in Nehru jacket portrait',
-        aspectRatio: '1/1',
-        delay: '-4.5s',
-        rotation: '1.5deg',
-        width: 800,
-        height: 800
-      },
-      {
         caption: 'Hand in hand',
         image: '/assets/moment-7.webp',
         alt: 'Hand in hand – golden hour walk together',
         aspectRatio: '4/5',
         delay: '-5.4s',
-        rotation: '-2.5deg',
+        rotation: '2.5deg',
         width: 800,
         height: 999
-      },
-      {
-        caption: 'Our little rituals',
-        image: '/assets/moment-8.webp',
-        alt: 'Our little rituals – morning coffee and fresh jasmine note',
-        aspectRatio: '1/1',
-        delay: '-6.3s',
-        rotation: '2deg',
-        width: 800,
-        height: 800
       }
     ]
   },
@@ -226,15 +174,13 @@ export const invitationConfig = {
     phone: ''
   },
 
-  // 7 Dot Navigation links (matching wedding-invite-v5)
+  // 6 Dot Navigation links
   navigation: [
     { target: '#hero', label: 'Welcome' },
     { target: '#story', label: 'Our story' },
     { target: '#moments', label: 'Moments' },
-    { target: '#e1', label: 'Christian wedding' },
-    { target: '#e2', label: 'Reception' },
+    { target: '#e1', label: 'Christian wedding & Reception' },
     { target: '#e3', label: 'Wedding ceremony' },
     { target: '#rsvp', label: 'RSVP' }
   ]
 };
-

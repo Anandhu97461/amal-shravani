@@ -22,12 +22,12 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
   <!-- Performance: Preload Above-the-fold Hero Image -->
-  <link rel="preload" as="image" href="/assets/hero-sunrise.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/hero-sunlit.webp" fetchpriority="high">
 
   <!-- Web Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Noto+Serif+Malayalam:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Global Vector Symbols -->
@@ -44,6 +44,29 @@
       </g>
       <g id="cross">
         <path d="M10.5 1h3v7h7v3h-7v12h-3V11h-7V8h7Z" fill="url(#gold)"/>
+      </g>
+      <g id="ganesha">
+        <!-- Mukut / Crown -->
+        <path d="M50 4 L53 12 L61 14 L55 20 L58 28 L50 24 L42 28 L45 20 L39 14 L47 12 Z" fill="url(#gold)"/>
+        <circle cx="50" cy="10" r="1.5" fill="#fff"/>
+        <!-- Forehead & Tilak -->
+        <path d="M47 28 C48 31 52 31 53 28" fill="none" stroke="url(#gold)" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="50" cy="27" r="1.5" fill="url(#gold)"/>
+        <path d="M50 20 L50 25" stroke="url(#gold)" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Left Ear (viewer left) -->
+        <path d="M41 29 C31 30 22 36 24 49 C26 56 33 56 38 52 C35 48 34 38 40 33" fill="none" stroke="url(#gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Right Ear (viewer right) -->
+        <path d="M59 29 C69 30 78 36 76 49 C74 56 67 56 62 52 C65 48 66 38 60 33" fill="none" stroke="url(#gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Head dome & Brow -->
+        <path d="M41 31 C45 33 55 33 59 31" fill="none" stroke="url(#gold)" stroke-width="2" stroke-linecap="round"/>
+        <!-- Single Tusk (Ekadanta) -->
+        <path d="M42 50 L36 52" stroke="url(#gold)" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Trunk (Vakratunda) gracefully turning to the left with sweet modak -->
+        <path d="M45 35 C44 46 45 61 50 71 C54 78 61 82 68 79 C74 76 75 68 70 64 C64 60 59 66 61 71 C62 73 65 74 67 73" fill="none" stroke="url(#gold)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Modak / Prasadam in trunk -->
+        <circle cx="68" cy="70" r="3.2" fill="url(#gold)"/>
+        <!-- Traditional Lotus Base -->
+        <path d="M34 84 C42 80 50 82 50 86 C50 82 58 80 66 84 C59 88 50 89 34 84 Z" fill="url(#gold)"/>
       </g>
     </defs>
   </svg>
@@ -131,25 +154,13 @@
       <div class="cols"></div>
     </section>
 
-    <!-- 4. The Christian Wedding -->
-    <section id="e1" class="ev" aria-label="The Christian Wedding">
+    <!-- 4. The Christian Wedding & Reception -->
+    <section id="e1" class="ev" aria-label="The Christian Wedding &amp; Reception">
       <div class="bg b2"><i class="fl"></i><i class="pc"></i></div>
       <div class="col"></div>
     </section>
 
-    <!-- 5. Wedding Reception -->
-    <section id="e2" class="ev" aria-label="Wedding Reception">
-      <div class="bg b3"><i class="fl"></i><i class="pc"></i></div>
-      <div class="box">
-        <i class="glow" style="left:13%;top:19%;width:22%;aspect-ratio:1"></i>
-        <i class="glow" style="left:26%;top:12%;width:14%;aspect-ratio:1;animation-delay:-1s"></i>
-        <i class="glow" style="left:90%;top:21%;width:20%;aspect-ratio:1;animation-delay:-2s"></i>
-        <i class="glow" style="left:86%;top:93%;width:14%;aspect-ratio:1;animation-delay:-.5s"></i>
-      </div>
-      <div class="col"></div>
-    </section>
-
-    <!-- 6. The Wedding Ceremony -->
+    <!-- 5. The Hindu Wedding Ceremony -->
     <section id="e3" class="ev" aria-label="The Wedding Ceremony">
       <div class="bg b4"><i class="fl"></i><i class="pc"></i></div>
       <div class="box"><i class="glow" style="left:39%;top:80%;width:18%;aspect-ratio:1"></i></div>
@@ -159,7 +170,7 @@
       <div class="col"></div>
     </section>
 
-    <!-- 7. RSVP Section -->
+    <!-- 6. RSVP Section -->
     <section id="rsvp" aria-label="RSVP">
       <div class="bg b5"><i class="fl"></i><i class="pc"></i></div>
       <div class="col">

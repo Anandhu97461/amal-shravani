@@ -81,7 +81,7 @@ export function renderContent(config) {
     `).join('');
   }
 
-  // 5. Events Sections (e1, e2, e3)
+  // 5. Events Sections (e1: Church & Reception, e3: Hindu Ceremony)
   config.events.forEach((ev) => {
     const sec = document.getElementById(ev.id);
     if (!sec) return;
@@ -89,7 +89,92 @@ export function renderContent(config) {
     const col = sec.querySelector('.col');
     if (!col) return;
 
-    // Check if venue fields should be displayed
+    // Combined Church Wedding and Reception on the same page
+    if (ev.id === 'e1' && ev.reception) {
+      const r = ev.reception;
+      const churchVenue = ev.venueName || ev.venueAddress ? `
+        <p class="venue rv" style="--i:3;font-size:0.9em;margin-top:0.2rem">
+          ${ev.venueName ? `<strong>${ev.venueName}</strong><br>` : ''}
+          ${ev.venueAddress || ''}
+        </p>
+      ` : '';
+      const receptionVenue = r.venueName || r.venueAddress ? `
+        <p class="venue rv" style="--i:8;font-size:0.9em;margin-top:0.2rem">
+          ${r.venueName ? `<strong>${r.venueName}</strong><br>` : ''}
+          ${r.venueAddress || ''}
+        </p>
+      ` : '';
+
+      col.innerHTML = `
+        <p class="cap rv" style="--i:0;color:#8a6a2a">${ev.category}</p>
+        <h2 class="rv" style="--i:1;margin-top:.25rem">
+          ${ev.titleMain} <span class="script" style="font-size:1.25em;color:#a47a2c">${ev.titleScript}</span>
+        </h2>
+        <p class="meta rv" style="--i:2;font-weight:600;margin-top:.15rem;color:var(--maroon)">${ev.time}</p>
+        ${churchVenue}
+        <a class="btn btn-sm rv" style="--i:3" href="${ev.shareLink}" target="_blank" rel="noopener">
+          VIEW CHURCH LOCATION
+        </a>
+
+        <div class="event-divider rv" style="--i:4">
+          <span class="script">followed by</span>
+        </div>
+
+        <h2 class="rv" style="--i:5;margin-top:0">
+          ${r.titleMain} <span class="script" style="font-size:1.25em;color:#a47a2c">${r.titleScript}</span>
+        </h2>
+        <p class="meta rv" style="--i:6;font-weight:600;margin-top:.15rem;color:var(--maroon)">${r.time}</p>
+        ${r.note ? `<p class="meta rv" style="--i:7;font-style:italic;font-size:0.95em;margin-top:.15rem">${r.note}</p>` : ''}
+        ${receptionVenue}
+        <a class="btn btn-sm rv" style="--i:8" href="${r.shareLink}" target="_blank" rel="noopener">
+          VIEW RECEPTION LOCATION
+        </a>
+
+        <svg class="orn rv" style="--i:9;margin-top:.6rem" viewBox="0 0 160 22" aria-hidden="true">
+          <path d="M0 11h60M100 11h60" stroke="#b8872e"/>
+          <g transform="translate(69 0)"><use href="#lotus"/></g>
+        </svg>
+        <p class="big rv" style="--i:10;margin-top:.2rem">${ev.date.replace('\n', '<br>')}</p>
+      `;
+      return;
+    }
+
+    // Hindu Wedding Ceremony with Malayalam Ganesh Verse
+    if (ev.id === 'e3') {
+      const hasVenue = Boolean(ev.venueName || ev.venueAddress);
+      const venueHtml = hasVenue ? `
+        <p class="venue rv" style="--i:6">
+          ${ev.venueName ? `<strong>${ev.venueName}</strong><br>` : ''}
+          ${ev.venueAddress || ''}
+        </p>
+      ` : '';
+      const iOffset = hasVenue ? 1 : 0;
+      const verse = ev.malayalamVerse;
+
+      col.innerHTML = `
+        <div class="malayalam-verse-wrap rv" style="--i:0">
+          <p class="malayalam-invocation">${verse?.invocation || 'ഓം ശ്രീ മഹാഗണപതയേ നമഃ'}</p>
+        </div>
+        <p class="cap rv" style="--i:1;color:#8a5a1a;margin-top:.35rem">${ev.category}</p>
+        <h2 class="rv" style="--i:2;margin-top:.25rem">
+          ${ev.titleMain}<br><span class="script" style="font-size:1.3em;color:#a8741f">${ev.titleScript}</span>
+        </h2>
+        <svg class="orn rv" style="--i:3" viewBox="0 0 160 22" aria-hidden="true">
+          <path d="M0 11h60M100 11h60" stroke="#b8872e"/>
+          <g transform="translate(69 0)"><use href="#lotus"/></g>
+        </svg>
+        <p class="big rv" style="--i:4">${ev.date.replace('\n', '<br>')}</p>
+        <p class="meta rv" style="--i:5">${ev.time}</p>
+        ${ev.note ? `<p class="meta rv" style="--i:6;font-style:italic;font-size:1.1em">${ev.note}</p>` : ''}
+        ${venueHtml}
+        <a class="btn rv" style="--i:${(ev.note ? 7 : 6) + iOffset}" href="${ev.shareLink}" target="_blank" rel="noopener">
+          VIEW LOCATION
+        </a>
+      `;
+      return;
+    }
+
+    // Default event renderer fallback
     const hasVenue = Boolean(ev.venueName || ev.venueAddress);
     const venueHtml = hasVenue ? `
       <p class="venue rv" style="--i:5">
@@ -97,16 +182,15 @@ export function renderContent(config) {
         ${ev.venueAddress || ''}
       </p>
     ` : '';
-
     const iOffset = hasVenue ? 1 : 0;
 
     col.innerHTML = `
-      <p class="cap rv" style="--i:0;${ev.id === 'e1' ? 'color:#8a6a2a' : ev.id === 'e3' ? 'color:#8a5a1a' : ''}">${ev.category}</p>
+      <p class="cap rv" style="--i:0">${ev.category}</p>
       <h2 class="rv" style="--i:1;margin-top:.4rem">
-        ${ev.titleMain}<br><span class="script" style="font-size:1.3em;${ev.id === 'e1' ? 'color:#a47a2c' : ev.id === 'e3' ? 'color:#a8741f' : ''}">${ev.titleScript}</span>
+        ${ev.titleMain}<br><span class="script" style="font-size:1.3em">${ev.titleScript}</span>
       </h2>
       <svg class="orn rv" style="--i:2" viewBox="0 0 160 22" aria-hidden="true">
-        <path d="M0 11h60M100 11h60" stroke="${ev.id === 'e2' ? '#e6c36b' : '#b8872e'}"/>
+        <path d="M0 11h60M100 11h60" stroke="#b8872e"/>
         <g transform="translate(69 0)"><use href="#lotus"/></g>
       </svg>
       <p class="big rv" style="--i:3">${ev.date.replace('\n', '<br>')}</p>
